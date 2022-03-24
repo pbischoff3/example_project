@@ -1,0 +1,45 @@
+---
+title: "PalmerPenguins"
+author: "Porter Bischoff"
+date: "3/24/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+### Run Cleaning Script and Load Packages
+```{r message=FALSE, warning=FALSE}
+source("./R/01_clean_data.R")
+source("./R/palette.R")
+library(tidyverse)
+library(easystats)
+library(broom)
+library(kableExtra)
+```
+
+
+Our data has now been cleaned and we can import the clean version for analysis.
+
+Let's take a glimpse of the data set:
+```{r message=FALSE}
+clean <- read_csv("./Data/Clean/clean_penguins_data1.csv")
+glimpse(clean)
+```
+
+We will just do a quick visualization:
+
+```{r message=FALSE,warning=FALSE}
+clean %>% 
+  ggplot(aes(x=species,y=body_mass_g,fill=sex))+
+  geom_boxplot() +
+  theme_minimal()
+```
+
+A quick ANOVA
+```{r}
+
+```
+
